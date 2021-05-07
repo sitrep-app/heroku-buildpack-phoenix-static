@@ -123,7 +123,6 @@ install_and_cache_deps() {
     cp -R $cache_dir/node_modules/* node_modules/
   fi
 
-  info "Installing node modules"
   if [ -f "$assets_dir/yarn.lock" ]; then
     install_yarn_deps
   else
@@ -139,14 +138,16 @@ install_and_cache_deps() {
 }
 
 install_npm_deps() {
-  npm prune | indent
-  npm install --quiet --unsafe-perm --userconfig $build_dir/npmrc 2>&1 | indent
-  npm rebuild 2>&1 | indent
-  npm --unsafe-perm prune 2>&1 | indent
+#   info "Installing node modules"
+#   npm prune | indent
+#   npm install --quiet --unsafe-perm --userconfig $build_dir/npmrc 2>&1 | indent
+#   npm rebuild 2>&1 | indent
+#   npm --unsafe-perm prune 2>&1 | indent
 }
 
 install_yarn_deps() {
-  yarn install --check-files --cache-folder $cache_dir/yarn-cache --pure-lockfile 2>&1
+#   info "Installing node modules"
+#   yarn install --check-files --cache-folder $cache_dir/yarn-cache --pure-lockfile 2>&1
 }
 
 install_bower_deps() {
