@@ -138,18 +138,16 @@ install_and_cache_deps() {
 }
 
 install_npm_deps() {
-#   info "Installing node modules"
-#   npm prune | indent
-#   npm install --quiet --unsafe-perm --userconfig $build_dir/npmrc 2>&1 | indent
-#   npm rebuild 2>&1 | indent
-#   npm --unsafe-perm prune 2>&1 | indent
-  echo ""
+  info "Installing node modules"
+  npm prune | indent
+  npm install --production --quiet --unsafe-perm --userconfig $build_dir/npmrc 2>&1 | indent
+  npm rebuild 2>&1 | indent
+  npm --unsafe-perm prune 2>&1 | indent
 }
 
 install_yarn_deps() {
-#   info "Installing node modules"
-#   yarn install --check-files --cache-folder $cache_dir/yarn-cache --pure-lockfile 2>&1
-  echo ""
+  info "Installing node modules"
+  yarn install --check-files --cache-folder $cache_dir/yarn-cache --pure-lockfile 2>&1
 }
 
 install_bower_deps() {
